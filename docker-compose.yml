@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  test:
+    image: docker/compose:1.21.2
+    volumes:
+      - .:/outer
+      - /var/run/docker.sock:/var/run/docker.sock
+    working_dir: /outer
+    command: /bin/sh -c "echo 'Outer container:' && pwd && ls -la && docker-compose -f docker-compose.test.yml run --rm app"
+    entrypoint: []
+      

@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  app:
+    image: alpine
+    command: /bin/sh -c "echo 'Inner container:' && pwd && ls -la"
+    working_dir: /inner
+    volumes:
+     - .:/inner
